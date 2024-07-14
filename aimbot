@@ -1,0 +1,27 @@
+-- Initial Setup
+local aimbotEnabled = false
+
+-- Toggle Function
+local function toggleAimbot()
+    if aimbotEnabled then
+        if TubiuDeveloperAimbot and TubiuDeveloperAimbot.Exit then
+            TubiuDeveloperAimbot:Exit()
+        end
+        aimbotEnabled = false
+        print("Aimbot Disabled")
+    else
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/efk0666/Tubi/main/aimbot')))()
+        TubiuDeveloperAimbot.Load()
+        aimbotEnabled = true
+        print("Aimbot Enabled")
+    end
+end
+
+-- User Input to Toggle
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == Enum.KeyCode.F then -- Change "F" to any key you prefer
+        toggleAimbot()
+    end
+end)
