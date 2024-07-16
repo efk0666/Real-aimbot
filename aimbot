@@ -21,7 +21,7 @@ end
 local UserInputService = game:GetService("UserInputService")
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
-    if input.KeyCode == Enum.KeyCode.numpad5 then -- Change "Numpad5" to any key you prefer
+    if input.KeyCode == Keys.NumPad5 then -- Change "Numpad5" to any key you prefer
         toggleAimbot()
     end
 end)
